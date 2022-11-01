@@ -1,17 +1,27 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
 import App from './App';
-import reportWebVitals from './reportWebVitals';
+import { CssBaseline } from '@mui/material';
+import { BrowserRouter as Router,Routes,Route } from "react-router-dom";
+import AccesoAulaVirtual from './AccesoAulaVirtual/AccesoAulaVirtual'
+import PagoExitoso from './Components/Matricula/PagoExitoso';
+import PreMatricula from './Components/Matricula/PreMatricula'
+import PagoOnline from './Components/Matricula/PagoOnline'
+import GenerarPago from './Components/Matricula/GenerarPago';
 
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
+  <Router>
+    <CssBaseline/>
+      <Routes>
+          <Route path="/" exact element={<App/>} />
+          <Route path="AccesoAulaVirtual" exact element={<AccesoAulaVirtual/>} />
+          <Route path="PreMatricula" element={<PreMatricula/>}/>
+          <Route path="PreMatricula/GenerarPago" element={<GenerarPago/>}/>
+          <Route path="PreMatricula/GenerarPago/PagoOnline" element={<PagoOnline/>}/>
+          <Route path="PreMatricula/GenerarPago/PagoOnline/PagoExitoso" element={<PagoExitoso/>}/>
+        </Routes>
+  </Router>,
   document.getElementById('root')
 );
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+
